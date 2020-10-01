@@ -15,3 +15,5 @@ matrix:
     install:
       - choco install python3 visualstudio2019community
       - pip3 install conan
+    script:
+      - conan --version
