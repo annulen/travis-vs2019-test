@@ -13,7 +13,9 @@ matrix:
     before_install:
       - powershell.exe -ExecutionPolicy Bypass -NoProfile -NonInteractive -File windows_setup.ps1
     install:
-      - choco install python3 visualstudio2019community
+      - choco install visualstudio2019community
+      - choco install python3 -y --override --installarguments "'/quiet  InstallAllUsers=1 TargetDir=c:\\Python'"
+      - export PATH="/c/Python/Scripts:$PATH"
       - pip3 install conan
     script:
       - conan --version
