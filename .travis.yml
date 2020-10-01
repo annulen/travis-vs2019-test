@@ -1,0 +1,17 @@
+language: cpp
+compiler: gcc
+sudo: required
+dist: bionic
+git:
+  depth: 3
+
+
+matrix:
+  include:
+  - name: "VS 2017 + VS2019"
+    os: windows
+    before_install:
+      - powershell.exe -ExecutionPolicy Bypass -NoProfile -NonInteractive -File windows_setup.ps1
+    install:
+      - choco install python3 visualstudio2019community
+      - pip3 install conan
