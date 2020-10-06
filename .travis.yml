@@ -19,8 +19,8 @@ matrix:
       - python -V
       - pip3 install conan
       - conan user
-      - mkdir -p .conan/profiles
-      - cp default VS2017 .conan/profiles
+      - mkdir -p $HOME/.conan/profiles
+      - cp default VS2017 $HOME/.conan/profiles
       - export CONAN_PRINT_RUN_COMMANDS=1
     script:
       - cd vorb_test/all
