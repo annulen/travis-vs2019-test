@@ -23,7 +23,6 @@ matrix:
       - cp default VS2017 .conan/profiles
       - export CONAN_PRINT_RUN_COMMANDS=1
     script:
-      - git clone --depth 1 https://github.com/narcdev/vorb_test.git
       - cd vorb_test/all
       - python build-libvorbis-conan.py --configure --profile default
       - python build-libvorbis-conan.py --configure --profile VS2017
