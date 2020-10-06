@@ -1,6 +1,4 @@
-language: cpp
-sudo: required
-dist: bionic
+language: shell
 git:
   depth: 3
 
@@ -12,7 +10,7 @@ matrix:
     before_install:
       - powershell.exe -ExecutionPolicy Bypass -NoProfile -NonInteractive -File windows_setup.ps1
     install:
-      - choco install visualstudio2019community
+      - choco install visualstudio2019community --package-parameters "--add Microsoft.VisualStudio.Component.VC.Tools.x86.x64"
       - choco install python3 -y --override --installarguments "'/quiet  InstallAllUsers=1 TargetDir=c:\\Python'"
       - export PATH="/c/Python:/c/Python/Scripts:$PATH"
       - python -V
