@@ -15,7 +15,15 @@ matrix:
     install:
       - choco install visualstudio2019community
       - choco install python3 -y --override --installarguments "'/quiet  InstallAllUsers=1 TargetDir=c:\\Python'"
-      - export PATH="/c/Python/Scripts:$PATH"
+      - export PATH="/c/Python:/c/Python/Scripts:$PATH"
+      - python -V
       - pip3 install conan
+      - conan user
+      - mkdir -p .conan/profiles
+      - cp default VS2017 .conan/profiles
+      - export CONAN_PRINT_RUN_COMMANDS=1
     script:
-      - conan --version
+      - git clone --depth 1 https://github.com/narcdev/vorb_test.git
+      - cd vorb_test/all
+      - python build-libvorbis-conan.py --configure --profile default
+      - python build-libvorbis-conan.py --configure --profile VS2017
