@@ -163,7 +163,7 @@ if not args.configure and not args.build:
     args.build = True
 
 if args.configure:
-    run_command('conan install {0} --build=missing --profile={1}'.format(conanfile_path, profile_name))
+    run_command('conan install {0} --profile={1}'.format(conanfile_path, profile_name))
 
 configure_flag = "--configure" if args.configure else ""
 build_flag = "--build" if args.build else ""
