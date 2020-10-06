@@ -1,5 +1,4 @@
 language: cpp
-compiler: gcc
 sudo: required
 dist: bionic
 git:
@@ -23,6 +22,4 @@ matrix:
       - cp default VS2017 $HOME/.conan/profiles
       - export CONAN_PRINT_RUN_COMMANDS=1
     script:
-      - cd vorb_test/all
-      - python build-libvorbis-conan.py --configure --profile default
-      - python build-libvorbis-conan.py --configure --profile VS2017
+      - ./build.bat
