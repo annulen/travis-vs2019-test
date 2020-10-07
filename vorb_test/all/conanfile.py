@@ -46,7 +46,7 @@ class VorbisConan(ConanFile):
     def _configure_cmake(self):
         if self._cmake:
             return self._cmake
-        self._cmake = CMake(self, set_cmake_flags=True, append_vcvars=True)
+        self._cmake = CMake(self, set_cmake_flags=True)
         self._cmake.generator = "Ninja"
         self._cmake.verbose = True
         self._cmake.configure(build_folder=self._build_subfolder)
