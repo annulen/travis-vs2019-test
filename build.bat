@@ -1,3 +1,6 @@
 cd vorb_test\all
 python -V
-python build-libvorbis-conan.py --configure --profile VS2017
+set CC=cl
+set CXX=cl
+conan install . --profile=VS2017
+conan build --configure .
