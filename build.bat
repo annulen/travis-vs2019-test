@@ -1,5 +1,4 @@
 cd vorb_test\all
-set CC=cl
-set CXX=cl
-conan create . 1.3.7@dev/test --profile default
-conan create . 1.3.7@dev/test --profile VS2017
+python -V
+python build-libvorbis-conan.py --configure --profile default
+python build-libvorbis-conan.py --configure --profile VS2017
