@@ -9,5 +9,3 @@ build_type=Release
 [options]
 [build_requires]
 [env]
-CC=abcl
-CXX=abcl
