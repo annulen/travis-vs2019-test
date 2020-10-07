@@ -52,6 +52,9 @@ class ConanProfile:
     def update(self, setting, value):
         run_command("conan profile update settings.{0}={1} {2}".format(setting, value, self.name))
 
+    def setenv(self, variable, value):
+        run_command("conan profile update env.{0}={1} {2}".format(setting, value, self.name))
+
 
 def set_compiler_environment(cc, cxx):
     os.environ["CC"] = cc
@@ -78,12 +81,10 @@ def create_profile(compiler, arch):
     cc, cxx = compiler_preset[compiler]
     profile = ConanProfile('qtwebkit_{0}_{1}'.format(compiler, arch))  # e.g. qtwebkit_msvc_x86
 
-    if compiler == "msvc":
-        profile.create()
-        set_compiler_environment(cc, cxx)
-    else:
-        set_compiler_environment(cc, cxx)
-        profile.create()
+    set_compiler_environment(cc, cxx)
+    profile.create()
+    profile.setenv('CC', cc)
+    profile.setenv('CXX', cxx)
 
     if arch == 'default':
         arch = profile.get_arch()
