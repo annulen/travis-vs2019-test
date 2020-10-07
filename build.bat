@@ -1,2 +1,2 @@
 cd vorb_test\all
-python build-libvorbis-conan.py --configure --profile VS2017
+conan create . 1.3.7@dev/test --profile VS2017
