@@ -132,7 +132,7 @@ def set_environment_for_profile(profile_name):
         cc, cxx = get_cc_cxx(compiler)
     except:
         sys.exit(f"Error: Unsupported compiler '{compiler}' specified in profile '{profile_name}'")
-    set_compiler_environment(cc, cxx, override=False)
+    set_compiler_environment(cc, cxx, override=True)
 
 
 parser = argparse.ArgumentParser(description='Build QtWebKit with Conan. For installation of build product into Qt, use --install option')
