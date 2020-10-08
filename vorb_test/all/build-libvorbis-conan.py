@@ -65,9 +65,6 @@ def get_cc_cxx(compiler):
         "gcc": ["gcc", "g++"]
     }
 
-    if not compiler in compiler_preset:
-        return None
-
     return compiler_preset[compiler]
 
 
@@ -113,8 +110,6 @@ def create_profile(compiler, arch):
 def set_environment_for_profile(profile_name):
     profile = ConanProfile(profile_name)
     compiler = profile.get('compiler')
-
-    print(f"compiler='{compiler}'")
 
     if compiler == "Visual Studio":
         compiler = "msvc"
